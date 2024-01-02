@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="/styles.css">
+    <title><%= title %></title>
+</head>
+<body>
+
+<header>
+    <h1><%= title %> Page</h1>
+</header>
+
+<div class="container">
+    <!-- Add Manager Button -->
+    <form action="/managers/add" method="GET">
+        <button type="submit">Add Manager (MongoDB)</button>
+    </form>
+
+    <!-- List of Managers -->
+    <table>
+        <thead>
+            <tr>
+                <th>Manager ID</th>
+                <th>Manager Name</th>
+                <th>Salary</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% managers.forEach(function(manager) { %>
+                <tr>
+                    <td><%= manager._id %></td>
+                    <td><%= manager.name %></td>
+                    <td>$<%= manager.salary.toFixed(2) %></td>
+                </tr>
+            <% }); %>
+        </tbody>
+    </table>
+
+    <!-- Back to Main Page Link -->
+    <a href="/">Back to Main Page</a>
+</div>
+
+</body>
+</html>

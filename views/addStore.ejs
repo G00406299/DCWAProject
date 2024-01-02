@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="/styles.css">
+    <title><%= title %></title>
+</head>
+<body>
+    <h1><%= title %></h1>
+    <form method="POST" action="/stores/add">
+        <label for="SID">Store ID:</label>
+        <input type="text" name="SID" required><br>
+        <label for="Location">Location:</label>
+        <input type="text" name="Location" required><br>
+        <label for="ManagerID">Manager ID:</label>
+        <input type="text" name="ManagerID" required><br>
+        <button type="submit">Add Store</button>
+    </form>
+</body>
+</html>

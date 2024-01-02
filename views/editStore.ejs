@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="/styles.css">
+    <title>Edit Store - <%= store.sid %></title>
+</head>
+<body>
+    <h1>Edit Store - <%= store.sid %></h1>
+    <form method="POST" action="/stores/edit/<%= store.sid %>">
+        <!-- Add a hidden input field to store the storeId -->
+        <input type="hidden" name="SID" value="<%= store.sid %>">
+        <label for="Location">Location:</label>
+        <input type="text" name="Location" value="<%= store.Location %>" required><br>
+        <label for="ManagerID">Manager ID:</label>
+        <input type="text" name="ManagerID" value="<%= store.ManagerID %>" required pattern="[A-Za-z0-9]{4}"><br>
+        <button type="submit">Update Store</button>
+    </form>
+</body>
+</html>

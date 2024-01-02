@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="/styles.css">
+    <title><%= title %></title>
+</head>
+<body>
+
+<header>
+    <h1><%= title %> Page</h1>
+</header>
+
+<div class="container">
+    <!-- Add Store Button -->
+    <form action="/stores/add" method="GET">
+        <button type="submit">Add Store</button>
+    </form>
+
+    <!-- List of Stores -->
+    <table>
+        <thead>
+            <tr>
+                <th>Store ID</th>
+                <th>Location</th>
+                <th>Manager ID</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% stores.forEach(function(store) { %>
+                <tr>
+                    <td><%= store.sid %></td>
+                    <td><%= store.location %></td>
+                    <td><%= store.mgrid %></td>
+                    <!-- Add button for editing each store -->
+                    <td>
+                        <a href="/stores/edit/<%= store.sid %>"><button>Edit</button></a>
+                    </td>
+                </tr>
+            <% }); %>
+        </tbody>
+    </table>
+
+    <!-- Back to Main Page Link -->
+    <a href="/">Back to Main Page</a>
+</div>
+
+</body>
+</html>

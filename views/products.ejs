@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="/styles.css">
+    <title>Products Page</title>
+</head>
+<body>
+
+<header>
+    <h1>Products Page</h1>
+</header>
+
+<div class="container">
+ 
+
+    <!-- List of Products -->
+    <table>
+        <thead>
+            <tr>
+                <th>Product ID</th>
+                <th>Product Description</th>
+                <th>Price</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% products.forEach((product) => { %>
+                <tr>
+                    <td><%= product.pid %></td>
+                    <td><%= product.productdesc %></td>
+                    <td>$<%= product.Price %></td>
+                    <td>
+                        <form action="/products/delete/<%= product.pid %>" method="POST">
+                            <button type="submit">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+            <% }); %>
+        </tbody>
+    </table>
+
+    <!-- Back to Home Page Link -->
+    <a href="/">Back to Home</a>
+</div>
+
+</body>
+</html>
